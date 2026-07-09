@@ -13,7 +13,10 @@ The technical framework governing retrieval augmentation has transitioned from u
 
 
 ```mermaid
-[Parametric Memory Only (Pre-2020)] ───> [Baseline Vector-RAG (2020-2023)] ───> [Text-to-SQL/Cypher Graphs] ───> [Hierarchical Graph-RAG (Microsoft, 2024+)](Confated Model Hallucinations)          (Fragmented Local Text-Chunk Chokes)          (Rigid Deterministic Schema Querying)        (Global Community-Grouped Semantic Views)
+flowchart LR
+    A["Parametric Memory Only (Pre-2020) (Confated Model Hallucinations)"] --> B["Baseline Vector-RAG (2020-2023) (Fragmented Local Text-Chunk Chokes)"]
+    B --> C["Text-to-SQL/Cypher Graphs (Rigid Deterministic Schema Querying)"]
+    C --> D["Hierarchical Graph-RAG (Microsoft, 2024+) (Global Community-Grouped Semantic Views)"]
 ```
 
 
@@ -55,7 +58,12 @@ To compile and query massive multi-layered knowledge graphs securely without tri
 
 
 ```mermaid
-The Hierarchical Graph-RAG Pipeline[Raw Corporate Data Silos] ───> [LLM Entity-Relation Extractor] ───> [Construct Global Knowledge Graph]│▼[Comprehensive Global Answer] <── [Synthesize Community Summaries] <── [Leiden Clustering Graph Partition]
+flowchart TB
+    A["Raw Corporate Data Silos"] --> B["LLM Entity-Relation Extractor"]
+    B --> C["Construct Global Knowledge Graph"]
+    C --> D["Leiden Clustering Graph Partition"]
+    D --> E["Synthesize Community Summaries"]
+    E --> F["Comprehensive Global Answer"]
 ```
 
 *   **LLM-Driven Triplet Extractors**
