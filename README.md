@@ -22,10 +22,10 @@ flowchart LR
 
 | Era / Concept | Description | Year First Used | First Used Paper |
 |---|---|---|---|
-| The Un-indexed Parametric Memory Era | **Concept:** The early foundational baseline...<br>**Limitation:** Severe knowledge decay... | Pre-2020 | [Attention is all you need](https://arxiv.org/abs/1706.03762) |
-| The Flat Text Chunk & Vector Space Era | **Concept:** Dismantled the parametric memory...<br>**Limitation:** The Structured Blind Spot... | 2020 | [RAG for Knowledge-Intensive NLP](https://arxiv.org/abs/2005.11401) |
-| The Rigid Text-to-Graph & Cypher Query Era | **Concept:** Attempted to integrate structured data...<br>**Significance:** Successfully mapped exact connections... | 2023 | [Text2Cypher](https://arxiv.org/abs/2312.10997) |
-| The Hierarchical Community-Grouped Era | **Concept:** The current modern state-of-the-art...<br>**Significance:** Utilizes Leiden Graph Clustering... | 2024 | [From Local to Global](https://arxiv.org/abs/2404.16130) |
+| [The Un-indexed Parametric Memory Era](pages/parametric-memory.md) | **Concept:** The early foundational baseline...<br>**Limitation:** Severe knowledge decay... | Pre-2020 | [Attention is all you need](https://arxiv.org/abs/1706.03762) |
+| [The Flat Text Chunk & Vector Space Era](pages/vector-rag.md) | **Concept:** Dismantled the parametric memory...<br>**Limitation:** The Structured Blind Spot... | 2020 | [RAG for Knowledge-Intensive NLP](https://arxiv.org/abs/2005.11401) |
+| [The Rigid Text-to-Graph & Cypher Query Era](pages/text-to-graph.md) | **Concept:** Attempted to integrate structured data...<br>**Significance:** Successfully mapped exact connections... | 2023 | [Text2Cypher](https://arxiv.org/abs/2312.10997) |
+| [The Hierarchical Community-Grouped Era](pages/hierarchical-graph-rag.md) | **Concept:** The current modern state-of-the-art...<br>**Significance:** Utilizes Leiden Graph Clustering... | 2024 | [From Local to Global](https://arxiv.org/abs/2404.16130) |
 
 ---
 
@@ -35,9 +35,9 @@ Graph-RAG frameworks are strictly categorized based on the specific path travers
 
 | Variant | Mechanism | Pros | Year First Used | First Used Paper |
 |---|---|---|---|---|
-| Local / Multi-Hop Graph-RAG | Ingests a highly specific user query targeting explicit entities... | Exceptional for pinpointing hidden multi-step data trails... | 2023 | [Multi-hop QA](https://arxiv.org/abs/2312.10997) |
-| Global Graph-RAG | Engineered explicitly to solve holistic, macro-level summarization... | Delivers comprehensive, bird's-eye-view domain summaries... | 2024 | [From Local to Global](https://arxiv.org/abs/2404.16130) |
-| Hybrid Vector-Graph RAG | A high-yield multi-index industrial configuration... | (Dual-Engine Routing) merges retrieved text streams... | 2024 | [Hybrid RAG](https://arxiv.org/abs/2312.10997) |
+| [Local / Multi-Hop Graph-RAG](pages/local-graph-rag.md) | Ingests a highly specific user query targeting explicit entities... | Exceptional for pinpointing hidden multi-step data trails... | 2023 | [Multi-hop QA](https://arxiv.org/abs/2312.10997) |
+| [Global Graph-RAG](pages/global-graph-rag.md) | Engineered explicitly to solve holistic, macro-level summarization... | Delivers comprehensive, bird's-eye-view domain summaries... | 2024 | [From Local to Global](https://arxiv.org/abs/2404.16130) |
+| [Hybrid Vector-Graph RAG](pages/hybrid-graph-rag.md) | A high-yield multi-index industrial configuration... | (Dual-Engine Routing) merges retrieved text streams... | 2024 | [Hybrid RAG](https://arxiv.org/abs/2312.10997) |
 
 ---
 
@@ -57,8 +57,8 @@ flowchart TB
 
 | Component | Profile | Year First Used | First Used Paper |
 |---|---|---|---|
-| LLM-Driven Triplet Extractors | Builds the data core... serializing links into structured graph nodes natively. | 2020 | [REBEL](https://arxiv.org/abs/2103.03612) |
-| Leiden Graph Clustering Operators | Slashes data complexity... allowing summaries to be generated in parallel. | 2019 | [From Louvain to Leiden](https://arxiv.org/abs/1810.08473) |
+| [LLM-Driven Triplet Extractors](pages/triplet-extractors.md) | Builds the data core... serializing links into structured graph nodes natively. | 2020 | [REBEL](https://arxiv.org/abs/2103.03612) |
+| [Leiden Graph Clustering Operators](pages/leiden-clustering.md) | Slashes data complexity... allowing summaries to be generated in parallel. | 2019 | [From Louvain to Leiden](https://arxiv.org/abs/1810.08473) |
 
 ---
 
@@ -68,8 +68,8 @@ Deploying and scaling complex Graph-RAG pipelines across high-volume commercial 
 
 | Challenge | Problem | Mitigation | Year First Used | First Used Paper |
 |---|---|---|---|---|
-| Massive Token Inflation | Building a high-fidelity index triggers enormous token ingestion cost. | Running loops locally over compact SLMs optimized via reasoning distillation. | 2024 | [DeepSeek-V3](https://arxiv.org/abs/2412.19437) |
-| Graph Density Explosion | Entity extraction causes Density Explosion (The Hairball Effect). | Enforcing strict Entity Resolution boundaries and dropping weak edges. | 2024 | [Entity Resolution](https://arxiv.org/abs/2312.10997) |
+| [Massive Token Inflation](pages/token-inflation.md) | Building a high-fidelity index triggers enormous token ingestion cost. | Running loops locally over compact SLMs optimized via reasoning distillation. | 2024 | [DeepSeek-V3](https://arxiv.org/abs/2412.19437) |
+| [Graph Density Explosion](pages/density-explosion.md) | Entity extraction causes Density Explosion (The Hairball Effect). | Enforcing strict Entity Resolution boundaries and dropping weak edges. | 2024 | [Entity Resolution](https://arxiv.org/abs/2312.10997) |
 
 ---
 
@@ -77,9 +77,9 @@ Deploying and scaling complex Graph-RAG pipelines across high-volume commercial 
 
 | Application | Description | Year First Used | First Used Paper |
 |---|---|---|---|
-| Enterprise Forensic Financial Audit | Decodes highly complex corporate transaction footprints... | 2024 | [Financial GraphRAG](https://arxiv.org/abs/2404.16130) |
-| Sovereign Biomedical Literature Synthesis | Maps unannotated DNA, clinical trials, and pharmacology research papers... | 2024 | [BioMedical GraphRAG](https://arxiv.org/abs/2404.16130) |
-| Long-Context Software Repository Exploration | Structures the full codebase directory tree for coding agents... | 2024 | [Code Graph RAG](https://arxiv.org/abs/2404.16130) |
+| [Enterprise Forensic Financial Audit](pages/forensic-audit.md) | Decodes highly complex corporate transaction footprints... | 2024 | [Financial GraphRAG](https://arxiv.org/abs/2404.16130) |
+| [Sovereign Biomedical Literature Synthesis](pages/biomedical-synthesis.md) | Maps unannotated DNA, clinical trials, and pharmacology research papers... | 2024 | [BioMedical GraphRAG](https://arxiv.org/abs/2404.16130) |
+| [Long-Context Software Repository Exploration](pages/software-exploration.md) | Structures the full codebase directory tree for coding agents... | 2024 | [Code Graph RAG](https://arxiv.org/abs/2404.16130) |
 
 ---
 
