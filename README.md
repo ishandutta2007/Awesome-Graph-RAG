@@ -1,5 +1,7 @@
 # Awesome-Graph-RAG
-## Graph-RAG in AI: History, Progression, Variants, & Applications
+
+![Banner](assets/banner.svg)
+## 🤖 Graph-RAG in AI: History, Progression, Variants, & Applications
 
 **Graph-RAG (Graph Retrieval-Augmented Generation)** is an advanced knowledge-retrieval and structural prompt-engineering framework designed to optimize Large Language Models (LLMs) by fusing vector-based document retrieval with structured **Knowledge Graphs (KGs)**. In traditional Vector-RAG configurations, external knowledge documents are chopped into isolated text chunks, converted into dense embedding vectors, and matched via mathematical similarity lookups (like Cosine Similarity) [INDEX: 18]. 
 
@@ -7,7 +9,7 @@ While Vector-RAG excels at extracting highly localized, specific data points, it
 
 ---
 
-## 1. The Macro Chronological Evolution
+## 🕰️ 1. The Macro Chronological Evolution
 
 The technical framework governing retrieval augmentation has transitioned from un-indexed parametric memories to flat vectorized text chunking, early structured graph query injections, and modern hierarchical community-grouped Graph-RAG engines.
 
@@ -29,7 +31,7 @@ flowchart LR
 
 ---
 
-## 2. Core Functional & Retrieval Variants
+## ⚙️ 2. Core Functional & Retrieval Variants
 
 Graph-RAG frameworks are strictly categorized based on the specific path traversal mechanics and hybrid indexing layers they execute at query time.
 
@@ -41,7 +43,7 @@ Graph-RAG frameworks are strictly categorized based on the specific path travers
 
 ---
 
-## 3. The Graph-RAG Extraction & Caching Matrix
+## 🗄️ 3. The Graph-RAG Extraction & Caching Matrix
 
 To compile and query massive multi-layered knowledge graphs securely without triggering execution stalls, the orchestration pipeline structures text parsing through unified semantic tokenization layers [INDEX: 1].
 
@@ -62,7 +64,7 @@ flowchart TB
 
 ---
 
-## 4. Production Engineering Challenges & Hardening Mitigations
+## 🛡️ 4. Production Engineering Challenges & Hardening Mitigations
 
 Deploying and scaling complex Graph-RAG pipelines across high-volume commercial cloud architectures introduces extreme token billing inflation and text-processing bottlenecks.
 
@@ -73,7 +75,7 @@ Deploying and scaling complex Graph-RAG pipelines across high-volume commercial 
 
 ---
 
-## 5. Frontier Real-World AI Infrastructure Applications
+## 🚀 5. Frontier Real-World AI Infrastructure Applications
 
 | Application | Description | Year First Used | First Used Paper |
 |---|---|---|---|
@@ -83,7 +85,7 @@ Deploying and scaling complex Graph-RAG pipelines across high-volume commercial 
 
 ---
 
-## References
+## 📚 References
 1. Vaswani, A., et al. (2017). Attention is all you need: Foundational transformer matrix blocks. *Advances in Neural Information Processing Systems (NeurIPS)*, 30 [INDEX: 1].
 2. Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence embeddings using Siamese BERT-networks for low-latency vector retrieval. *Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP)* [INDEX: 18].
 3. Traag, V. A., Waltman, L., & van Eck, N. J. (2019). From Louvain to Leiden: Guaranteeing well-connected communities in networks. *Scientific Reports*, 9(1), 5233.
