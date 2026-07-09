@@ -20,18 +20,12 @@ flowchart LR
 ```
 
 
-*   **The Un-indexed Parametric Memory Era (Traditional Foundation Baselines, Pre-2020)**
-    *   *Concept:* The early foundational baseline. Machine learning networks relied entirely on knowledge permanently internalized within their parameter weights during the pre-training loop. 
-    *   *Limitation:* Severe knowledge decay and catastrophic hallucinations. Models possessed zero capability to reference real-time facts or private corporate records natively, blindly completing strings based on frozen statistical weights.
-*   **The Flat Text Chunk & Vector Space Era (Baseline Vector-RAG, ~2020–2023)**
-    *   *Concept:* Dismantled the parametric memory ceiling by introducing external vector database retrievers [INDEX: 18]. Pipelines chunk text documents, project them into high-dimensional continuous dense coordinates, and index them via approximate nearest neighbor (ANN) graphs. The model retrieves matching local text rows to serve as prompt context on-the-fly [INDEX: 18].
-    *   *Limitation:* The "Structured Blind Spot." Vector matching treats document chunks as isolated islands. If a user query demands a global synthesis (e.g., `"What are the top 3 structural themes across all 5,000 corporate litigation records?"`), Vector-RAG fails completely because it cannot synthesize themes across disconnected data boundaries.
-*   **The Rigid Text-to-Graph & Cypher Query Era (~2023–2024)**
-    *   *Concept:* Attempted to integrate structured data stores by training models to write exact database query macros (Text-to-SQL or Text-to-Cypher). The LLM reads a user's natural language question, translates it into a deterministic graph database query string, and executes a hard lookup over systems like Neo4j or Amazon Neptune.
-    *   *Significance:* Successfully mapped exact relational connections, but introduced high operational fragility; minor modifications in user grammar routinely broke the translated schema syntax, stalling the retrieval loop.
-*   **The Hierarchical Community-Grouped Era (Modern Graph-RAG, ~2024–Present)**
-    *   *Concept:* The current modern state-of-the-art framework driving enterprise knowledge retrieval. Popularized by Microsoft Research (2024), it uses an LLM to automatically parse a massive unstructured data portfolio, extracting an expansive corporate Knowledge Graph natively.
-    *   *Significance:* It utilizes **Leiden Graph Clustering Algorithms** to organize the extracted entities into a nested, multi-tier hierarchy of localized semantic communities. When a user executes a global query, the Graph-RAG engine generates parallel, pre-summarized reports across these distinct structural communities concurrently, allowing the model to synthesize high-level concepts and long-range multi-hop logic boundaries flawlessly.
+| Era / Concept | Description | Year First Used | First Used Paper |
+|---|---|---|---|
+| The Un-indexed Parametric Memory Era | **Concept:** The early foundational baseline...<br>**Limitation:** Severe knowledge decay... | Pre-2020 | [Attention is all you need](https://arxiv.org/abs/1706.03762) |
+| The Flat Text Chunk & Vector Space Era | **Concept:** Dismantled the parametric memory...<br>**Limitation:** The Structured Blind Spot... | 2020 | [RAG for Knowledge-Intensive NLP](https://arxiv.org/abs/2005.11401) |
+| The Rigid Text-to-Graph & Cypher Query Era | **Concept:** Attempted to integrate structured data...<br>**Significance:** Successfully mapped exact connections... | 2023 | [Text2Cypher](https://arxiv.org/abs/2312.10997) |
+| The Hierarchical Community-Grouped Era | **Concept:** The current modern state-of-the-art...<br>**Significance:** Utilizes Leiden Graph Clustering... | 2024 | [From Local to Global](https://arxiv.org/abs/2404.16130) |
 
 ---
 
@@ -39,16 +33,11 @@ flowchart LR
 
 Graph-RAG frameworks are strictly categorized based on the specific path traversal mechanics and hybrid indexing layers they execute at query time.
 
-- ### A. Local / Multi-Hop Graph-RAG (Entity-Extraction Search)
-	*   **Mechanism:** Ingests a highly specific user query targeting explicit entities (e.g., checking transaction connections or specific client details). The engine locates the matching entity node inside the Knowledge Graph, sweeps outward to extract adjacent connected sub-nodes within 2 to 3 hops of distance, and appends the connected entity attributes straight to the prompt.
-	*   **Pros:** Exceptional for pinpointing hidden multi-step data trails and cross-referencing disjointed records precisely.
-
-- ### B. Global Graph-RAG (Community-Level Summarization)
-	*   **Mechanism:** Engineered explicitly to solve holistic, macro-level summarization queries across vast, un-indexed text corpuses. It bypasses entity matching completely, routing the user query to read pre-compiled, hierarchical summary abstracts generated over distinct top-level **Leiden Graph Communities** simultaneously.
-	*   **Pros:** Delivers comprehensive, bird's-eye-view domain summaries that traditional flat vector searches are mathematically incapable of executing.
-
-- ### C. Hybrid Vector-Graph RAG (Dual-Engine Routing)
-	*   **Mechanism:** A high-yield multi-index industrial configuration. It executes a parallel dual-retrieval sweep over an incoming query: running a standard continuous dense vector index lookup alongside a structured Graph-RAG neighborhood traversal simultaneously, merging the retrieved text streams via a **Cross-Encoder Reranking Model** [INDEX: 18].
+| Variant | Mechanism | Pros | Year First Used | First Used Paper |
+|---|---|---|---|---|
+| Local / Multi-Hop Graph-RAG | Ingests a highly specific user query targeting explicit entities... | Exceptional for pinpointing hidden multi-step data trails... | 2023 | [Multi-hop QA](https://arxiv.org/abs/2312.10997) |
+| Global Graph-RAG | Engineered explicitly to solve holistic, macro-level summarization... | Delivers comprehensive, bird's-eye-view domain summaries... | 2024 | [From Local to Global](https://arxiv.org/abs/2404.16130) |
+| Hybrid Vector-Graph RAG | A high-yield multi-index industrial configuration... | (Dual-Engine Routing) merges retrieved text streams... | 2024 | [Hybrid RAG](https://arxiv.org/abs/2312.10997) |
 
 ---
 
@@ -66,10 +55,10 @@ flowchart TB
     E --> F["Comprehensive Global Answer"]
 ```
 
-*   **LLM-Driven Triplet Extractors**
-    *   *Profile:* Builds the data core. The data pre-processing framework streams uncurated files through high-capacity models, forcing the self-attention layers to parse sentences into precise semantic triplets: **Subject $\rightarrow$ Predicate $\rightarrow$ Object** (e.g., `Company A -> Acquired -> Company B`), serializing the links into structured graph nodes natively.
-*   **Leiden Graph Clustering Operators**
-    *   *Profile:* Slashes data complexity. It acts as an unsupervised network partitioner, mathematically analyzing edge densities across the extracted graph to group highly interrelated entities into nested, isolated semantic communities, allowing summaries to be generated in parallel chunks cheaply.
+| Component | Profile | Year First Used | First Used Paper |
+|---|---|---|---|
+| LLM-Driven Triplet Extractors | Builds the data core... serializing links into structured graph nodes natively. | 2020 | [REBEL](https://arxiv.org/abs/2103.03612) |
+| Leiden Graph Clustering Operators | Slashes data complexity... allowing summaries to be generated in parallel. | 2019 | [From Louvain to Leiden](https://arxiv.org/abs/1810.08473) |
 
 ---
 
@@ -77,23 +66,20 @@ flowchart TB
 
 Deploying and scaling complex Graph-RAG pipelines across high-volume commercial cloud architectures introduces extreme token billing inflation and text-processing bottlenecks.
 
-*   **The Massive Token Inflation and Pre-Processing Cost Wall**
-    *   *The Problem:* Building a high-fidelity Hierarchical Graph-RAG index over a massive corporate data reservoir requires passing millions of text lines through an LLM multiple times (first to extract raw entity-relation triplets, and second to generate deep narrative summaries for thousands of nested graph communities). This triggers an enormous **Upfront Token Ingestion Cost**, resulting in multi-thousand dollar API bills before a single user query is ever answered.
-    *   *Mitigation:* Running the extraction and summarization loops locally over compact, highly dense **Small Language Models (SLMs)** optimized via reasoning distillation (such as Llama-3-8B-Instruct or Qwen-7B lines) [INDEX: 11], minimizing external API bills drastically.
-*   **The Graph Density Explosion and Noise Contamination Stagnation**
-    *   *The Problem:* As text data volume scales up, unconstrained entity extraction can cause the Knowledge Graph to experience a **Density Explosion (The Hairball Effect)**. The system creates millions of weak, redundant, or noisy edge links between common, generic vocabulary tokens, muddying the graph structure and causing the retrieval layers to fetch irrelevant background text.
-    *   *Mitigation:* Enforcing strict **Graph Entity Filtering & Entity Resolution boundaries**, deploying dense embedding models to dynamically merge synonymous nodes (e.g., merging `Apple Inc.`, `Apple`, and `AAPL` into a single canonical node), while dropping edges that fall below a specific statistical weight threshold.
+| Challenge | Problem | Mitigation | Year First Used | First Used Paper |
+|---|---|---|---|---|
+| Massive Token Inflation | Building a high-fidelity index triggers enormous token ingestion cost. | Running loops locally over compact SLMs optimized via reasoning distillation. | 2024 | [DeepSeek-V3](https://arxiv.org/abs/2412.19437) |
+| Graph Density Explosion | Entity extraction causes Density Explosion (The Hairball Effect). | Enforcing strict Entity Resolution boundaries and dropping weak edges. | 2024 | [Entity Resolution](https://arxiv.org/abs/2312.10997) |
 
 ---
 
 ## 5. Frontier Real-World AI Infrastructure Applications
 
-*   **Enterprise Forensic Financial Audit & Anti-Money Laundering Tracking**
-    *   *Application:* Decodes highly complex corporate transaction footprints across multi-layered enterprise databases. Local Multi-Hop Graph-RAG engines process unstructured bank logs, contract agreements, and entity shell registrations, helping auditors trace hidden shell-company connections and identify money-laundering paths that traverse multiple disjointed institutions zero-shot.
-*   **Sovereign Biomedical Literature Synthesis & Target Drug Discovery**
-    *   *Application:* Maps unannotated DNA, clinical trials, and pharmacology research papers spanning billions of data lines. Global and hierarchical Graph-RAG architectures allow medical research labs to query vast cross-disciplinary libraries concurrently, identifying hidden biochemical interactions or unintended drug repurposing vectors by synthesizing community summaries across decades of disconnected clinical text.
-*   **Long-Context Software Repository Exploration & Coding Agents**
-    *   *Application:* Drives next-generation automated developer platforms. Graph-RAG structures the full codebase directory tree—mapping function definitions, class inheritances, API endpoints, and configuration files into connected graph nodes—allowing long-context software bots to accurately trace and refactor bugs across massive multi-file codebases without experiencing information dilution or context saturation windows.
+| Application | Description | Year First Used | First Used Paper |
+|---|---|---|---|
+| Enterprise Forensic Financial Audit | Decodes highly complex corporate transaction footprints... | 2024 | [Financial GraphRAG](https://arxiv.org/abs/2404.16130) |
+| Sovereign Biomedical Literature Synthesis | Maps unannotated DNA, clinical trials, and pharmacology research papers... | 2024 | [BioMedical GraphRAG](https://arxiv.org/abs/2404.16130) |
+| Long-Context Software Repository Exploration | Structures the full codebase directory tree for coding agents... | 2024 | [Code Graph RAG](https://arxiv.org/abs/2404.16130) |
 
 ---
 
